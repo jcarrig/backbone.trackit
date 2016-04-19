@@ -54,9 +54,11 @@
 
   // Create a browser unload handler which is triggered
   // on the refresh, back, or forward button.
-  window.onbeforeunload = function(e) {
-    return getPrompt('unloadWindowPrompt', e);
-  };
+  if (window) {
+    window.onbeforeunload = function(e) {
+      return getPrompt('unloadWindowPrompt', e);
+    };
+  } 
 
   // Backbone.Model API
   // ------------------
